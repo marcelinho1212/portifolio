@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marcelo Eduardo Ribeiro Romano | Portfólio</title>
+  <title>Marcelo Romano | Portfólio</title>
   <style>
     :root{
-      --bg:#03060d;
-      --bg-soft:#07101f;
-      --card:#0b1220;
-      --card-2:#0f172a;
-      --line:#17315f;
+      --bg:#07111f;
+      --bg-2:#0b1728;
+      --panel:#0e1c31;
+      --panel-2:#10203a;
+      --line:rgba(96,165,250,.18);
+      --line-strong:rgba(96,165,250,.35);
       --text:#f8fafc;
-      --muted:#cbd5e1;
-      --muted-2:#94a3b8;
+      --muted:#dbe7f5;
+      --muted-2:#9fb2ca;
       --blue:#3b82f6;
       --blue-2:#60a5fa;
-      --blue-3:#0ea5e9;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 22px;
+      --blue-3:#93c5fd;
+      --shadow:0 18px 55px rgba(0,0,0,.35);
+      --radius:24px;
     }
 
     *{box-sizing:border-box}
@@ -26,15 +27,16 @@
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(59,130,246,.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(14,165,233,.08), transparent 22%),
-        linear-gradient(180deg, #02050b 0%, #050912 100%);
       color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(59,130,246,.16), transparent 22%),
+        radial-gradient(circle at 90% 12%, rgba(14,165,233,.10), transparent 20%),
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.03), transparent 26%),
+        linear-gradient(180deg, #07101d 0%, #0a1525 100%);
     }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
 
     .container{
       width:min(1180px, calc(100% - 32px));
@@ -45,13 +47,13 @@
       position:sticky;
       top:0;
       z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(4,8,22,.88);
-      border-bottom:1px solid rgba(37,99,235,.35);
+      backdrop-filter: blur(12px);
+      background:rgba(7,17,31,.84);
+      border-bottom:1px solid rgba(96,165,250,.16);
     }
 
     .header-inner{
-      min-height:82px;
+      min-height:84px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -61,45 +63,42 @@
     .brand{
       font-size:20px;
       font-weight:800;
-      color:var(--text);
       white-space:nowrap;
     }
 
-    .brand span{
-      color:var(--blue);
-    }
+    .brand span{color:var(--blue-2)}
 
     .nav{
       display:flex;
-      flex-wrap:wrap;
       gap:12px;
+      flex-wrap:wrap;
       justify-content:flex-end;
     }
 
     .nav a{
       padding:11px 16px;
       border-radius:999px;
-      color:#e5e7eb;
+      color:#e8eef8;
       font-size:14px;
       font-weight:700;
       transition:.2s ease;
     }
 
     .nav a:hover{
-      background:rgba(59,130,246,.12);
-      color:var(--blue-2);
+      background:rgba(59,130,246,.10);
+      color:var(--blue-3);
     }
 
     .nav a.active{
-      background:rgba(59,130,246,.16);
-      color:var(--blue-2);
-      box-shadow: inset 0 0 0 1px rgba(59,130,246,.18);
+      background:rgba(59,130,246,.14);
+      color:var(--blue-3);
+      box-shadow:inset 0 0 0 1px rgba(96,165,250,.12);
     }
 
     .hero{
       position:relative;
       overflow:hidden;
-      border-bottom:1px solid rgba(37,99,235,.22);
+      border-bottom:1px solid rgba(96,165,250,.12);
     }
 
     .hero::before,
@@ -107,51 +106,51 @@
       content:"";
       position:absolute;
       border-radius:50%;
-      filter:blur(70px);
-      opacity:.32;
+      filter:blur(80px);
+      opacity:.35;
       pointer-events:none;
     }
 
     .hero::before{
-      width:260px;height:260px;
-      background:#2563eb;
-      left:-80px;top:40px;
+      width:320px;height:320px;
+      background:rgba(59,130,246,.22);
+      left:-90px;top:40px;
     }
 
     .hero::after{
-      width:240px;height:240px;
-      background:#0ea5e9;
-      right:-70px;top:30px;
+      width:270px;height:270px;
+      background:rgba(14,165,233,.14);
+      right:-60px;top:20px;
     }
 
     .hero-grid{
       position:relative;
       display:grid;
-      grid-template-columns: 1.2fr .9fr;
+      grid-template-columns:1.12fr .88fr;
       gap:48px;
       align-items:center;
-      padding:72px 0 84px;
+      padding:72px 0 88px;
     }
 
     .eyebrow{
+      margin:0 0 14px;
       font-size:22px;
       font-weight:700;
       color:var(--muted);
-      margin:0 0 16px;
     }
 
     .hero h1{
-      font-size:68px;
-      line-height:1;
       margin:0;
-      color:#7db6ff;
-      letter-spacing:-1.8px;
+      font-size:72px;
+      line-height:.98;
+      letter-spacing:-2px;
+      color:#8dbbff;
     }
 
     .hero p.main{
-      margin:26px 0 0;
+      margin:28px 0 0;
       font-size:22px;
-      line-height:1.6;
+      line-height:1.65;
       color:var(--muted);
       max-width:720px;
     }
@@ -159,7 +158,7 @@
     .hero p.sub{
       margin:14px 0 0;
       font-size:18px;
-      line-height:1.8;
+      line-height:1.85;
       color:var(--muted-2);
       max-width:760px;
     }
@@ -172,28 +171,28 @@
     }
 
     .btn{
+      min-height:58px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:58px;
       padding:0 28px;
       border-radius:18px;
       font-weight:800;
       transition:.2s ease;
-      box-shadow:var(--shadow);
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--blue), #1570ef);
+      background:linear-gradient(135deg, #4b8ef8, #2f6fe8);
       color:white;
+      box-shadow:0 12px 32px rgba(59,130,246,.28);
     }
 
     .btn-primary:hover{transform:translateY(-2px)}
+
     .btn-outline{
-      border:2px solid rgba(59,130,246,.9);
-      color:var(--blue-2);
+      border:1.5px solid rgba(96,165,250,.7);
+      color:var(--blue-3);
       background:transparent;
-      box-shadow:none;
     }
 
     .btn-outline:hover{
@@ -201,27 +200,29 @@
     }
 
     .socials{
-      margin-top:32px;
+      margin-top:28px;
       display:flex;
       gap:14px;
       flex-wrap:wrap;
     }
 
     .social-btn{
-      width:56px;height:56px;
+      width:58px;height:58px;
       border-radius:999px;
-      border:1px solid rgba(59,130,246,.45);
-      background:rgba(15,23,42,.72);
+      border:1px solid rgba(96,165,250,.3);
+      background:rgba(9,20,38,.65);
       display:flex;
       align-items:center;
       justify-content:center;
       transition:.2s ease;
+      box-shadow:0 0 0 1px rgba(255,255,255,.015);
     }
 
     .social-btn:hover{
       transform:translateY(-2px) scale(1.03);
-      border-color:var(--blue-2);
-      box-shadow:0 0 0 4px rgba(59,130,246,.08);
+      border-color:rgba(147,197,253,.7);
+      background:rgba(15,28,49,.92);
+      box-shadow:0 0 0 5px rgba(59,130,246,.08);
     }
 
     .social-btn svg{
@@ -239,28 +240,44 @@
     }
 
     .hero-photo{
-      width:min(360px, 100%);
-      border-radius:34px;
+      width:min(380px,100%);
       padding:10px;
-      background:linear-gradient(180deg, rgba(30,41,59,.95), rgba(2,6,23,.95));
-      border:1px solid rgba(59,130,246,.25);
+      border-radius:34px;
+      background:linear-gradient(180deg, rgba(16,32,58,.98), rgba(10,21,37,.95));
+      border:1px solid rgba(96,165,250,.18);
       box-shadow:var(--shadow);
+      position:relative;
+    }
+
+    .hero-photo::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:34px;
+      padding:1px;
+      background:linear-gradient(135deg, rgba(147,197,253,.25), rgba(59,130,246,0), rgba(147,197,253,.12));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      pointer-events:none;
     }
 
     .hero-photo img{
       width:100%;
-      height:460px;
+      height:480px;
       object-fit:cover;
       border-radius:26px;
     }
 
-    section.section{
-      padding:84px 0;
+    .section{
+      padding:86px 0;
     }
 
     .section-title-small{
       margin:0 0 10px;
-      color:var(--blue-2);
+      color:var(--blue-3);
       font-size:13px;
       font-weight:800;
       letter-spacing:.28em;
@@ -271,11 +288,12 @@
       margin:0;
       font-size:46px;
       line-height:1.08;
+      letter-spacing:-1px;
     }
 
     .about-grid{
       display:grid;
-      grid-template-columns: 1.08fr .92fr;
+      grid-template-columns:1.08fr .92fr;
       gap:28px;
       align-items:start;
     }
@@ -288,8 +306,8 @@
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(15,23,42,.88), rgba(2,6,23,.88));
-      border:1px solid rgba(59,130,246,.16);
+      background:linear-gradient(180deg, rgba(16,32,58,.84), rgba(10,21,37,.92));
+      border:1px solid rgba(96,165,250,.14);
       border-radius:28px;
       padding:28px;
       box-shadow:var(--shadow);
@@ -302,24 +320,25 @@
     }
 
     .highlight-item{
-      padding:18px 18px;
+      padding:18px;
       border-radius:18px;
-      background:rgba(15,23,42,.72);
-      border:1px solid rgba(148,163,184,.12);
-      color:#e2e8f0;
+      background:rgba(7,17,31,.55);
+      border:1px solid rgba(159,178,202,.12);
+      color:#e6eef8;
       font-weight:700;
     }
 
-    .skills-section{
-      border-top:1px solid rgba(37,99,235,.18);
-      border-bottom:1px solid rgba(37,99,235,.18);
-      background:rgba(15,23,42,.18);
+    .skills-section,
+    .certs-section{
+      border-top:1px solid rgba(96,165,250,.10);
+      border-bottom:1px solid rgba(96,165,250,.10);
+      background:rgba(10,21,37,.30);
     }
 
     .skills-grid{
-      margin-top:28px;
+      margin-top:30px;
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:16px;
     }
 
@@ -327,19 +346,21 @@
       display:flex;
       align-items:center;
       gap:14px;
-      padding:18px;
+      padding:20px 18px;
       border-radius:22px;
-      background:rgba(2,6,23,.7);
-      border:1px solid rgba(59,130,246,.18);
-      color:#e2e8f0;
+      background:rgba(7,17,31,.62);
+      border:1px solid rgba(96,165,250,.18);
+      color:#f1f6fc;
       font-size:18px;
       font-weight:700;
       transition:.2s ease;
+      min-height:92px;
     }
 
     .skill-card:hover{
       transform:translateY(-2px);
-      border-color:rgba(96,165,250,.55);
+      border-color:rgba(147,197,253,.45);
+      background:rgba(10,21,37,.78);
     }
 
     .skill-icon{
@@ -349,21 +370,21 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(59,130,246,.14);
-      border:1px solid rgba(59,130,246,.24);
-      font-size:18px;
+      background:rgba(59,130,246,.10);
+      border:1px solid rgba(96,165,250,.14);
+      font-size:20px;
     }
 
     .projects-grid{
-      margin-top:28px;
+      margin-top:30px;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
 
     .project-card{
-      background:linear-gradient(180deg, rgba(15,23,42,.86), rgba(2,6,23,.9));
-      border:1px solid rgba(148,163,184,.12);
+      background:linear-gradient(180deg, rgba(16,32,58,.82), rgba(10,21,37,.92));
+      border:1px solid rgba(159,178,202,.12);
       border-radius:28px;
       padding:22px;
       box-shadow:var(--shadow);
@@ -372,16 +393,16 @@
 
     .project-card:hover{
       transform:translateY(-3px);
-      border-color:rgba(96,165,250,.45);
+      border-color:rgba(147,197,253,.35);
     }
 
     .project-banner{
       height:150px;
       border-radius:20px;
       background:
-        radial-gradient(circle at top left, rgba(59,130,246,.25), transparent 28%),
-        linear-gradient(135deg, #0f172a, #020617 70%);
-      border:1px solid rgba(59,130,246,.12);
+        radial-gradient(circle at top left, rgba(59,130,246,.20), transparent 28%),
+        linear-gradient(135deg, #10203a, #091321 70%);
+      border:1px solid rgba(96,165,250,.08);
       margin-bottom:18px;
     }
 
@@ -407,11 +428,11 @@
     .tag{
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(59,130,246,.3);
-      color:var(--blue-2);
+      border:1px solid rgba(96,165,250,.22);
+      color:var(--blue-3);
       font-size:13px;
       font-weight:700;
-      background:rgba(59,130,246,.08);
+      background:rgba(59,130,246,.06);
     }
 
     .project-link{
@@ -419,23 +440,19 @@
       margin-top:20px;
       padding:12px 16px;
       border-radius:14px;
-      border:1px solid rgba(59,130,246,.65);
-      color:var(--blue-2);
+      border:1px solid rgba(96,165,250,.6);
+      color:var(--blue-3);
       font-weight:800;
     }
 
-    .project-link:hover{background:rgba(59,130,246,.08)}
-
-    .certs-section{
-      border-top:1px solid rgba(37,99,235,.18);
-      border-bottom:1px solid rgba(37,99,235,.18);
-      background:rgba(15,23,42,.18);
+    .project-link:hover{
+      background:rgba(59,130,246,.08);
     }
 
     .cert-grid{
-      margin-top:28px;
+      margin-top:30px;
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns:repeat(2,1fr);
       gap:16px;
     }
 
@@ -443,9 +460,9 @@
       display:block;
       padding:20px 22px;
       border-radius:22px;
-      background:rgba(2,6,23,.72);
-      border:1px solid rgba(148,163,184,.12);
-      color:#e2e8f0;
+      background:rgba(7,17,31,.62);
+      border:1px solid rgba(159,178,202,.12);
+      color:#eaf2fb;
       font-size:18px;
       font-weight:700;
       transition:.2s ease;
@@ -453,13 +470,14 @@
 
     .cert-link:hover{
       transform:translateY(-2px);
-      border-color:rgba(96,165,250,.45);
-      color:var(--blue-2);
+      border-color:rgba(147,197,253,.45);
+      color:var(--blue-3);
+      background:rgba(10,21,37,.8);
     }
 
     .contact-grid{
       display:grid;
-      grid-template-columns: 1fr .95fr;
+      grid-template-columns:1fr .95fr;
       gap:24px;
       align-items:start;
     }
@@ -473,19 +491,35 @@
 
     .contact-list{
       margin-top:24px;
-      display:grid;
-      gap:12px;
-      color:#cbd5e1;
-      font-size:17px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .contact-list span{
-      color:#fff;
-      font-weight:800;
+    .contact-chip{
+      width:58px;height:58px;
+      border-radius:999px;
+      border:1px solid rgba(96,165,250,.28);
+      background:rgba(9,20,38,.68);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.2s ease;
     }
 
-    .contact-list a{
-      color:var(--blue-2);
+    .contact-chip:hover{
+      transform:translateY(-2px);
+      border-color:rgba(147,197,253,.55);
+      background:rgba(15,28,49,.92);
+    }
+
+    .contact-chip svg{
+      width:24px;height:24px;
+      fill:none;
+      stroke:#f8fafc;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
     }
 
     .link-box h3{
@@ -500,65 +534,103 @@
 
     .big-link{
       display:block;
-      padding:18px 18px;
+      padding:18px;
       border-radius:18px;
-      background:rgba(2,6,23,.7);
-      border:1px solid rgba(148,163,184,.12);
-      color:#e2e8f0;
+      background:rgba(7,17,31,.62);
+      border:1px solid rgba(159,178,202,.12);
+      color:#eaf2fb;
       font-weight:700;
       transition:.2s ease;
     }
 
     .big-link:hover{
-      border-color:rgba(96,165,250,.45);
-      color:var(--blue-2);
+      border-color:rgba(147,197,253,.45);
+      color:var(--blue-3);
+      background:rgba(10,21,37,.82);
     }
 
     footer{
-      border-top:1px solid rgba(37,99,235,.18);
-      color:#64748b;
+      border-top:1px solid rgba(96,165,250,.10);
+      color:#7f95af;
       text-align:center;
       padding:28px 16px 38px;
       font-size:14px;
     }
 
-    @media (max-width: 1080px){
+    @media (max-width:1080px){
       .hero-grid,
       .about-grid,
       .contact-grid{
         grid-template-columns:1fr;
       }
-      .projects-grid{grid-template-columns:1fr 1fr}
-      .skills-grid{grid-template-columns:1fr 1fr}
-      .hero h1{font-size:54px}
-      .hero-photo-wrap{justify-content:flex-start}
+
+      .projects-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .skills-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero h1{
+        font-size:56px;
+      }
+
+      .hero-photo-wrap{
+        justify-content:flex-start;
+      }
     }
 
-    @media (max-width: 720px){
+    @media (max-width:720px){
       .header-inner{
         flex-direction:column;
         align-items:flex-start;
         padding:16px 0;
       }
+
       .nav{
         width:100%;
         justify-content:flex-start;
       }
-      .nav a{padding:10px 12px}
-      .hero-grid{padding:46px 0 56px}
-      .hero h1{font-size:42px}
-      .eyebrow{font-size:18px}
-      .hero p.main{font-size:18px}
-      .hero p.sub{font-size:16px}
-      .section-title{font-size:34px}
+
+      .nav a{
+        padding:10px 12px;
+      }
+
+      .hero-grid{
+        padding:46px 0 56px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .eyebrow{
+        font-size:18px;
+      }
+
+      .hero p.main{
+        font-size:18px;
+      }
+
+      .hero p.sub{
+        font-size:16px;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+
       .skills-grid,
       .projects-grid,
       .cert-grid{
         grid-template-columns:1fr;
       }
+
       .hero-photo{
         width:100%;
       }
+
       .hero-photo img{
         width:100%;
         height:auto;
@@ -590,7 +662,7 @@
         <div>
           <p class="eyebrow">Desenvolvedor Fullstack e Analista de Sistemas</p>
 
-          <h1>Marcelo Eduardo Ribeiro Romano</h1>
+          <h1>Marcelo Romano</h1>
 
           <p class="main">
             Desenvolvedor Fullstack com 2+ anos de experiência prática em Python/Django,
@@ -605,6 +677,7 @@
           <div class="cta-row">
             <a href="#projetos" class="btn btn-primary">Conheça meu trabalho</a>
             <a href="#contato" class="btn btn-outline">Entre em contato</a>
+            <a href="certificados/curriculo.pdf" target="_blank" class="btn btn-outline">Ver currículo</a>
           </div>
 
           <div class="socials">
@@ -659,7 +732,7 @@
         </div>
 
         <div class="card">
-          <h3 style="margin:0;font-size:28px;color:var(--blue-2)">Destaques</h3>
+          <h3 style="margin:0;font-size:28px;color:var(--blue-3)">Destaques</h3>
           <div class="highlight-list">
             <div class="highlight-item">Sistemas web com Django</div>
             <div class="highlight-item">Integração com WhatsApp</div>
@@ -748,6 +821,10 @@
         <h2 class="section-title">Formações e cursos</h2>
 
         <div class="cert-grid">
+          <a class="cert-link" href="certificados/curriculo.pdf" target="_blank">
+            Ver currículo em PDF
+          </a>
+
           <a class="cert-link" href="certificados/dominandopackages.pdf" target="_blank">
             Oracle PL/SQL: Dominando Packages
           </a>
@@ -794,16 +871,28 @@
           </p>
 
           <div class="contact-list">
-            <div><span>WhatsApp:</span> <a href="https://wa.me/5531981094264" target="_blank">+55 31 98109-4264</a></div>
-            <div><span>Instagram:</span> <a href="https://instagram.com/marcelo_rr_eduardo" target="_blank">@marcelo_rr_eduardo</a></div>
-            <div><span>GitHub:</span> github.com/marcelinho1212</div>
-            <div><span>LinkedIn:</span> /in/marcelo-romano-627901259</div>
+            <a class="contact-chip" href="https://github.com/marcelinho1212/" target="_blank" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.5a3 3 0 0 0-.8-2.1c2.6-.3 5.3-1.3 5.3-6A4.7 4.7 0 0 0 18.2 7a4.4 4.4 0 0 0-.1-3.2s-1-.3-3.3 1.3a11.4 11.4 0 0 0-6 0C6.5 3.5 5.5 3.8 5.5 3.8A4.4 4.4 0 0 0 5.4 7a4.7 4.7 0 0 0-1.3 3.4c0 4.7 2.7 5.7 5.3 6A3 3 0 0 0 8.6 19V22"/></svg>
+            </a>
+
+            <a class="contact-chip" href="https://www.linkedin.com/in/marcelo-romano-627901259/" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+
+            <a class="contact-chip" href="https://wa.me/5531981094264" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.5L3 21l2.1-5.1A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+            </a>
+
+            <a class="contact-chip" href="https://instagram.com/marcelo_rr_eduardo" target="_blank" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            </a>
           </div>
         </div>
 
         <div class="card link-box">
           <h3>Links principais</h3>
           <div class="link-grid">
+            <a class="big-link" href="certificados/curriculo.pdf" target="_blank">Ver currículo</a>
             <a class="big-link" href="https://github.com/marcelinho1212/" target="_blank">GitHub</a>
             <a class="big-link" href="https://www.linkedin.com/in/marcelo-romano-627901259/" target="_blank">LinkedIn</a>
             <a class="big-link" href="https://wa.me/5531981094264" target="_blank">WhatsApp</a>
@@ -815,7 +904,7 @@
   </main>
 
   <footer>
-    © 2025 Marcelo Eduardo Ribeiro Romano. Todos os direitos reservados.
+    © 2025 Marcelo Romano. Todos os direitos reservados.
   </footer>
 
 </body>
