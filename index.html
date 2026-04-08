@@ -4,280 +4,819 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marcelo Eduardo Ribeiro Romano | Portfólio</title>
+  <style>
+    :root{
+      --bg:#03060d;
+      --bg-soft:#07101f;
+      --card:#0b1220;
+      --card-2:#0f172a;
+      --line:#17315f;
+      --text:#f8fafc;
+      --muted:#cbd5e1;
+      --muted-2:#94a3b8;
+      --blue:#3b82f6;
+      --blue-2:#60a5fa;
+      --blue-3:#0ea5e9;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+    }
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(14,165,233,.08), transparent 22%),
+        linear-gradient(180deg, #02050b 0%, #050912 100%);
+      color:var(--text);
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(1180px, calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(4,8,22,.88);
+      border-bottom:1px solid rgba(37,99,235,.35);
+    }
+
+    .header-inner{
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .brand{
+      font-size:20px;
+      font-weight:800;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    .brand span{
+      color:var(--blue);
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      padding:11px 16px;
+      border-radius:999px;
+      color:#e5e7eb;
+      font-size:14px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(59,130,246,.12);
+      color:var(--blue-2);
+    }
+
+    .nav a.active{
+      background:rgba(59,130,246,.16);
+      color:var(--blue-2);
+      box-shadow: inset 0 0 0 1px rgba(59,130,246,.18);
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-bottom:1px solid rgba(37,99,235,.22);
+    }
+
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:.32;
+      pointer-events:none;
+    }
+
+    .hero::before{
+      width:260px;height:260px;
+      background:#2563eb;
+      left:-80px;top:40px;
+    }
+
+    .hero::after{
+      width:240px;height:240px;
+      background:#0ea5e9;
+      right:-70px;top:30px;
+    }
+
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.2fr .9fr;
+      gap:48px;
+      align-items:center;
+      padding:72px 0 84px;
+    }
+
+    .eyebrow{
+      font-size:22px;
+      font-weight:700;
+      color:var(--muted);
+      margin:0 0 16px;
+    }
+
+    .hero h1{
+      font-size:68px;
+      line-height:1;
+      margin:0;
+      color:#7db6ff;
+      letter-spacing:-1.8px;
+    }
+
+    .hero p.main{
+      margin:26px 0 0;
+      font-size:22px;
+      line-height:1.6;
+      color:var(--muted);
+      max-width:720px;
+    }
+
+    .hero p.sub{
+      margin:14px 0 0;
+      font-size:18px;
+      line-height:1.8;
+      color:var(--muted-2);
+      max-width:760px;
+    }
+
+    .cta-row{
+      margin-top:34px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:58px;
+      padding:0 28px;
+      border-radius:18px;
+      font-weight:800;
+      transition:.2s ease;
+      box-shadow:var(--shadow);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--blue), #1570ef);
+      color:white;
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-outline{
+      border:2px solid rgba(59,130,246,.9);
+      color:var(--blue-2);
+      background:transparent;
+      box-shadow:none;
+    }
+
+    .btn-outline:hover{
+      background:rgba(59,130,246,.08);
+    }
+
+    .socials{
+      margin-top:32px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .social-btn{
+      width:56px;height:56px;
+      border-radius:999px;
+      border:1px solid rgba(59,130,246,.45);
+      background:rgba(15,23,42,.72);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.2s ease;
+    }
+
+    .social-btn:hover{
+      transform:translateY(-2px) scale(1.03);
+      border-color:var(--blue-2);
+      box-shadow:0 0 0 4px rgba(59,130,246,.08);
+    }
+
+    .social-btn svg{
+      width:24px;height:24px;
+      fill:none;
+      stroke:#f8fafc;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .hero-photo-wrap{
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-photo{
+      width:min(360px, 100%);
+      border-radius:34px;
+      padding:10px;
+      background:linear-gradient(180deg, rgba(30,41,59,.95), rgba(2,6,23,.95));
+      border:1px solid rgba(59,130,246,.25);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-photo img{
+      width:100%;
+      height:460px;
+      object-fit:cover;
+      border-radius:26px;
+    }
+
+    section.section{
+      padding:84px 0;
+    }
+
+    .section-title-small{
+      margin:0 0 10px;
+      color:var(--blue-2);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+    }
+
+    .section-title{
+      margin:0;
+      font-size:46px;
+      line-height:1.08;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .about-text p{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.9;
+      margin:22px 0 0;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(15,23,42,.88), rgba(2,6,23,.88));
+      border:1px solid rgba(59,130,246,.16);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .highlight-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .highlight-item{
+      padding:18px 18px;
+      border-radius:18px;
+      background:rgba(15,23,42,.72);
+      border:1px solid rgba(148,163,184,.12);
+      color:#e2e8f0;
+      font-weight:700;
+    }
+
+    .skills-section{
+      border-top:1px solid rgba(37,99,235,.18);
+      border-bottom:1px solid rgba(37,99,235,.18);
+      background:rgba(15,23,42,.18);
+    }
+
+    .skills-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .skill-card{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(2,6,23,.7);
+      border:1px solid rgba(59,130,246,.18);
+      color:#e2e8f0;
+      font-size:18px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(96,165,250,.55);
+    }
+
+    .skill-icon{
+      width:42px;height:42px;
+      min-width:42px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(59,130,246,.14);
+      border:1px solid rgba(59,130,246,.24);
+      font-size:18px;
+    }
+
+    .projects-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .project-card{
+      background:linear-gradient(180deg, rgba(15,23,42,.86), rgba(2,6,23,.9));
+      border:1px solid rgba(148,163,184,.12);
+      border-radius:28px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+
+    .project-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(96,165,250,.45);
+    }
+
+    .project-banner{
+      height:150px;
+      border-radius:20px;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,.25), transparent 28%),
+        linear-gradient(135deg, #0f172a, #020617 70%);
+      border:1px solid rgba(59,130,246,.12);
+      margin-bottom:18px;
+    }
+
+    .project-card h3{
+      margin:0;
+      font-size:28px;
+    }
+
+    .project-card p{
+      margin:14px 0 0;
+      color:var(--muted-2);
+      font-size:16px;
+      line-height:1.75;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .tag{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(59,130,246,.3);
+      color:var(--blue-2);
+      font-size:13px;
+      font-weight:700;
+      background:rgba(59,130,246,.08);
+    }
+
+    .project-link{
+      display:inline-flex;
+      margin-top:20px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(59,130,246,.65);
+      color:var(--blue-2);
+      font-weight:800;
+    }
+
+    .project-link:hover{background:rgba(59,130,246,.08)}
+
+    .certs-section{
+      border-top:1px solid rgba(37,99,235,.18);
+      border-bottom:1px solid rgba(37,99,235,.18);
+      background:rgba(15,23,42,.18);
+    }
+
+    .cert-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .cert-link{
+      display:block;
+      padding:20px 22px;
+      border-radius:22px;
+      background:rgba(2,6,23,.72);
+      border:1px solid rgba(148,163,184,.12);
+      color:#e2e8f0;
+      font-size:18px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .cert-link:hover{
+      transform:translateY(-2px);
+      border-color:rgba(96,165,250,.45);
+      color:var(--blue-2);
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr .95fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .contact-text p{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.9;
+      margin:22px 0 0;
+    }
+
+    .contact-list{
+      margin-top:24px;
+      display:grid;
+      gap:12px;
+      color:#cbd5e1;
+      font-size:17px;
+    }
+
+    .contact-list span{
+      color:#fff;
+      font-weight:800;
+    }
+
+    .contact-list a{
+      color:var(--blue-2);
+    }
+
+    .link-box h3{
+      margin:0 0 18px;
+      font-size:30px;
+    }
+
+    .link-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    .big-link{
+      display:block;
+      padding:18px 18px;
+      border-radius:18px;
+      background:rgba(2,6,23,.7);
+      border:1px solid rgba(148,163,184,.12);
+      color:#e2e8f0;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .big-link:hover{
+      border-color:rgba(96,165,250,.45);
+      color:var(--blue-2);
+    }
+
+    footer{
+      border-top:1px solid rgba(37,99,235,.18);
+      color:#64748b;
+      text-align:center;
+      padding:28px 16px 38px;
+      font-size:14px;
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .about-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+      .projects-grid{grid-template-columns:1fr 1fr}
+      .skills-grid{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:54px}
+      .hero-photo-wrap{justify-content:flex-start}
+    }
+
+    @media (max-width: 720px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:16px 0;
+      }
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+      .nav a{padding:10px 12px}
+      .hero-grid{padding:46px 0 56px}
+      .hero h1{font-size:42px}
+      .eyebrow{font-size:18px}
+      .hero p.main{font-size:18px}
+      .hero p.sub{font-size:16px}
+      .section-title{font-size:34px}
+      .skills-grid,
+      .projects-grid,
+      .cert-grid{
+        grid-template-columns:1fr;
+      }
+      .hero-photo{
+        width:100%;
+      }
+      .hero-photo img{
+        width:100%;
+        height:auto;
+        max-height:520px;
+      }
+    }
+  </style>
 </head>
-<body class="min-h-screen bg-black text-white scroll-smooth">
+<body>
 
-  <header class="sticky top-0 z-50 border-b border-blue-950/60 bg-[#040816]/90 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#inicio" class="text-2xl font-bold tracking-tight">
-        Marcelo <span class="text-blue-500">| Fullstack</span>
-      </a>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">Marcelo <span>| Fullstack</span></a>
 
-      <nav class="hidden md:flex items-center gap-4">
-        <a href="#inicio" class="rounded-full bg-blue-600/20 px-4 py-2 text-sm font-medium text-blue-400">Início</a>
-        <a href="#sobre" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-blue-600/10 hover:text-blue-300">Sobre</a>
-        <a href="#habilidades" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-blue-600/10 hover:text-blue-300">Habilidades</a>
-        <a href="#projetos" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-blue-600/10 hover:text-blue-300">Projetos</a>
-        <a href="#certificados" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-blue-600/10 hover:text-blue-300">Certificados</a>
-        <a href="#contato" class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-blue-600/10 hover:text-blue-300">Contato</a>
+      <nav class="nav">
+        <a class="active" href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contato">Contato</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section id="inicio" class="relative overflow-hidden border-b border-blue-950/50">
-      <div class="absolute inset-0 opacity-30">
-        <div class="absolute left-10 top-16 h-40 w-40 rounded-full border border-blue-700/30 blur-3xl"></div>
-        <div class="absolute right-10 top-24 h-52 w-52 rounded-full border border-blue-700/20 blur-3xl"></div>
-        <div class="absolute bottom-10 left-1/4 h-56 w-56 rounded-full border border-blue-700/20 blur-3xl"></div>
-      </div>
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Desenvolvedor Fullstack e Analista de Sistemas</p>
 
-      <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
-        <div class="text-center md:text-left">
-          <p class="mb-4 text-lg font-semibold text-slate-300 md:text-2xl">
-            Desenvolvedor Fullstack e Analista de Sistemas
-          </p>
+          <h1>Marcelo Eduardo Ribeiro Romano</h1>
 
-          <h1 class="max-w-4xl text-4xl font-extrabold leading-tight text-blue-300 md:text-6xl">
-            Marcelo Eduardo Ribeiro Romano
-          </h1>
-
-          <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl md:leading-relaxed">
+          <p class="main">
             Desenvolvedor Fullstack com 2+ anos de experiência prática em Python/Django,
             SQL/PL-SQL e Engenharia de Prompts de IA.
           </p>
 
-          <p class="mt-4 max-w-3xl text-base leading-8 text-slate-400 md:text-lg">
+          <p class="sub">
             Histórico comprovado com sistemas web em produção, análise de dados hospitalares,
             automação de processos e suporte a ambientes corporativos de missão crítica.
           </p>
 
-          <div class="mt-10 flex flex-col gap-4 sm:flex-row md:justify-start">
-            <a href="#projetos" class="rounded-2xl bg-blue-600 px-8 py-4 text-base font-semibold shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500">
-              Conheça meu trabalho
-            </a>
-            <a href="#contato" class="rounded-2xl border border-blue-500 px-8 py-4 text-base font-semibold text-blue-400 transition hover:bg-blue-500/10">
-              Entre em contato
-            </a>
+          <div class="cta-row">
+            <a href="#projetos" class="btn btn-primary">Conheça meu trabalho</a>
+            <a href="#contato" class="btn btn-outline">Entre em contato</a>
           </div>
 
-          <div class="mt-10 flex items-center justify-center gap-4 md:justify-start">
-            <a href="https://github.com/marcelinho1212/" target="_blank" rel="noreferrer" class="flex h-14 w-14 items-center justify-center rounded-full border border-blue-500/40 bg-blue-950/20 text-slate-100 transition hover:scale-105 hover:border-blue-400 hover:text-blue-300">
-              <i data-lucide="github" class="h-6 w-6"></i>
+          <div class="socials">
+            <a class="social-btn" href="https://github.com/marcelinho1212/" target="_blank" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.5a3 3 0 0 0-.8-2.1c2.6-.3 5.3-1.3 5.3-6A4.7 4.7 0 0 0 18.2 7a4.4 4.4 0 0 0-.1-3.2s-1-.3-3.3 1.3a11.4 11.4 0 0 0-6 0C6.5 3.5 5.5 3.8 5.5 3.8A4.4 4.4 0 0 0 5.4 7a4.7 4.7 0 0 0-1.3 3.4c0 4.7 2.7 5.7 5.3 6A3 3 0 0 0 8.6 19V22"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/marcelo-romano-627901259/" target="_blank" rel="noreferrer" class="flex h-14 w-14 items-center justify-center rounded-full border border-blue-500/40 bg-blue-950/20 text-slate-100 transition hover:scale-105 hover:border-blue-400 hover:text-blue-300">
-              <i data-lucide="linkedin" class="h-6 w-6"></i>
+
+            <a class="social-btn" href="https://www.linkedin.com/in/marcelo-romano-627901259/" target="_blank" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="https://wa.me/5531981094264" target="_blank" rel="noreferrer" class="flex h-14 w-14 items-center justify-center rounded-full border border-blue-500/40 bg-blue-950/20 text-slate-100 transition hover:scale-105 hover:border-blue-400 hover:text-blue-300">
-              <i data-lucide="message-circle" class="h-6 w-6"></i>
+
+            <a class="social-btn" href="https://wa.me/5531981094264" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.5L3 21l2.1-5.1A8.5 8.5 0 1 1 21 11.5Z"/></svg>
             </a>
-            <a href="https://instagram.com/marcelo_rr_eduardo" target="_blank" rel="noreferrer" class="flex h-14 w-14 items-center justify-center rounded-full border border-blue-500/40 bg-blue-950/20 text-slate-100 transition hover:scale-105 hover:border-blue-400 hover:text-blue-300">
-              <i data-lucide="instagram" class="h-6 w-6"></i>
+
+            <a class="social-btn" href="https://instagram.com/marcelo_rr_eduardo" target="_blank" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
             </a>
           </div>
         </div>
 
-        <div class="flex justify-center">
-          <div class="overflow-hidden rounded-[2rem] border border-blue-900/50 bg-slate-950/70 p-3 shadow-2xl shadow-blue-950/30">
-            <img
-              src="img/fotodudusite.png"
-              alt="Foto profissional de Marcelo Romano"
-              class="h-[420px] w-[320px] rounded-[1.5rem] object-cover"
-            />
+        <div class="hero-photo-wrap">
+          <div class="hero-photo">
+            <img src="img/fotodudusite.png" alt="Foto profissional de Marcelo Romano">
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sobre" class="mx-auto max-w-6xl px-6 py-20">
-      <div class="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
-        <div>
-          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">Sobre mim</p>
-          <h2 class="text-3xl font-bold md:text-5xl">Conheça um pouco da minha trajetória profissional</h2>
-          <p class="mt-6 text-lg leading-8 text-slate-300">
+    <section id="sobre" class="section">
+      <div class="container about-grid">
+        <div class="about-text">
+          <p class="section-title-small">Sobre mim</p>
+          <h2 class="section-title">Conheça um pouco da minha trajetória profissional</h2>
+
+          <p>
             Sou Desenvolvedor Fullstack e Analista de Sistemas, com atuação prática em sistemas web
             em produção, análise de dados, automação de processos e suporte a ambientes corporativos
-            de missão crítica. Tenho experiência construindo soluções com Python, Django, SQL e
-            PL/SQL, além de aplicar Engenharia de Prompts de IA para acelerar processos e gerar
-            resultados concretos.
+            de missão crítica.
           </p>
-          <p class="mt-4 text-lg leading-8 text-slate-400">
+
+          <p>
+            Tenho experiência construindo soluções com Python, Django, SQL e PL/SQL, além de aplicar
+            Engenharia de Prompts de IA para acelerar processos e gerar resultados concretos.
+          </p>
+
+          <p>
             Meu histórico inclui projetos como sistemas de agendamento online com integração via
-            WhatsApp e sites bilíngues para produtoras de vídeo. Tenho perfil analítico,
-            autodidata e orientado a resultados, buscando sempre unir tecnologia, usabilidade e
-            impacto real no negócio.
+            WhatsApp e sites bilíngues para produtoras de vídeo. Tenho perfil analítico, autodidata
+            e orientado a resultados.
           </p>
         </div>
 
-        <div class="rounded-3xl border border-blue-900/60 bg-slate-950/70 p-8 shadow-2xl shadow-blue-950/20">
-          <h3 class="text-xl font-semibold text-blue-300">Destaques</h3>
-          <div class="mt-6 grid gap-4">
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-slate-200">Sistemas web com Django</div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-slate-200">Integração com WhatsApp</div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-slate-200">SQL e PL/SQL</div>
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-slate-200">Engenharia de Prompts com IA</div>
+        <div class="card">
+          <h3 style="margin:0;font-size:28px;color:var(--blue-2)">Destaques</h3>
+          <div class="highlight-list">
+            <div class="highlight-item">Sistemas web com Django</div>
+            <div class="highlight-item">Integração com WhatsApp</div>
+            <div class="highlight-item">SQL e PL/SQL</div>
+            <div class="highlight-item">Engenharia de Prompts com IA</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="habilidades" class="border-y border-blue-950/50 bg-slate-950/40 px-6 py-20">
-      <div class="mx-auto max-w-6xl">
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">Habilidades</p>
-        <h2 class="text-3xl font-bold md:text-5xl">Competências técnicas</h2>
+    <section id="habilidades" class="section skills-section">
+      <div class="container">
+        <p class="section-title-small">Habilidades</p>
+        <h2 class="section-title">Competências técnicas</h2>
 
-        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="file-code-2" class="h-6 w-6 text-blue-400"></i> Python
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="layout-template" class="h-6 w-6 text-blue-400"></i> Django
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="database" class="h-6 w-6 text-blue-400"></i> SQL
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="cylinder" class="h-6 w-6 text-blue-400"></i> PL/SQL
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="braces" class="h-6 w-6 text-blue-400"></i> JavaScript
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="monitor-smartphone" class="h-6 w-6 text-blue-400"></i> React
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="code-2" class="h-6 w-6 text-blue-400"></i> HTML/CSS
-          </div>
-          <div class="flex items-center gap-3 rounded-3xl border border-blue-900/50 bg-black/60 p-6 text-lg font-semibold text-slate-100 transition hover:-translate-y-1 hover:border-blue-500/70">
-            <i data-lucide="sparkles" class="h-6 w-6 text-blue-400"></i> Engenharia de Prompts
-          </div>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-icon">🐍</div>Python</div>
+          <div class="skill-card"><div class="skill-icon">🌐</div>Django</div>
+          <div class="skill-card"><div class="skill-icon">🗄️</div>SQL</div>
+          <div class="skill-card"><div class="skill-icon">⚙️</div>PL/SQL</div>
+          <div class="skill-card"><div class="skill-icon">🧩</div>JavaScript</div>
+          <div class="skill-card"><div class="skill-icon">💻</div>React</div>
+          <div class="skill-card"><div class="skill-icon">🎨</div>HTML/CSS</div>
+          <div class="skill-card"><div class="skill-icon">✨</div>Engenharia de Prompts</div>
         </div>
       </div>
     </section>
 
-    <section id="projetos" class="mx-auto max-w-6xl px-6 py-20">
-      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">Projetos</p>
-      <h2 class="text-3xl font-bold md:text-5xl">Projetos em destaque</h2>
+    <section id="projetos" class="section">
+      <div class="container">
+        <p class="section-title-small">Projetos</p>
+        <h2 class="section-title">Projetos em destaque</h2>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-3">
-        <article class="rounded-3xl border border-slate-800 bg-slate-950/80 p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-blue-500/60">
-          <div class="mb-5 h-40 rounded-2xl bg-gradient-to-br from-blue-950 via-slate-900 to-black"></div>
-          <h3 class="text-2xl font-semibold text-slate-100">Pedro B Media</h3>
-          <p class="mt-4 leading-7 text-slate-400">Site institucional bilíngue desenvolvido para produtora de vídeo, com foco em presença digital, experiência moderna e apresentação profissional dos serviços.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Django</span>
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Frontend</span>
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Deploy</span>
-          </div>
-          <a href="https://pedro-b-media.onrender.com/" target="_blank" rel="noreferrer" class="mt-6 inline-flex rounded-xl border border-blue-500 px-4 py-2 text-sm font-semibold text-blue-300 transition hover:bg-blue-500/10">Ver projeto</a>
-        </article>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-banner"></div>
+            <h3>Pedro B Media</h3>
+            <p>
+              Site institucional bilíngue desenvolvido para produtora de vídeo, com foco em presença
+              digital, experiência moderna e apresentação profissional dos serviços.
+            </p>
+            <div class="tags">
+              <span class="tag">Django</span>
+              <span class="tag">Frontend</span>
+              <span class="tag">Deploy</span>
+            </div>
+            <a class="project-link" href="https://pedro-b-media.onrender.com/" target="_blank">Ver projeto</a>
+          </article>
 
-        <article class="rounded-3xl border border-slate-800 bg-slate-950/80 p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-blue-500/60">
-          <div class="mb-5 h-40 rounded-2xl bg-gradient-to-br from-blue-950 via-slate-900 to-black"></div>
-          <h3 class="text-2xl font-semibold text-slate-100">Rony Massoterapia</h3>
-          <p class="mt-4 leading-7 text-slate-400">Sistema web com agendamento online e integração via WhatsApp, pensado para facilitar o contato com clientes e otimizar o atendimento.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Python</span>
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Django</span>
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">WhatsApp</span>
-          </div>
-          <a href="https://rony-massoterapia.onrender.com/" target="_blank" rel="noreferrer" class="mt-6 inline-flex rounded-xl border border-blue-500 px-4 py-2 text-sm font-semibold text-blue-300 transition hover:bg-blue-500/10">Ver projeto</a>
-        </article>
+          <article class="project-card">
+            <div class="project-banner"></div>
+            <h3>Rony Massoterapia</h3>
+            <p>
+              Sistema web com agendamento online e integração via WhatsApp, pensado para facilitar o
+              contato com clientes e otimizar o atendimento.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">WhatsApp</span>
+            </div>
+            <a class="project-link" href="https://rony-massoterapia.onrender.com/" target="_blank">Ver projeto</a>
+          </article>
 
-        <article class="rounded-3xl border border-slate-800 bg-slate-950/80 p-6 shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:border-blue-500/60">
-          <div class="mb-5 h-40 rounded-2xl bg-gradient-to-br from-blue-950 via-slate-900 to-black"></div>
-          <h3 class="text-2xl font-semibold text-slate-100">Projetos e estudos no GitHub</h3>
-          <p class="mt-4 leading-7 text-slate-400">Repositórios com aplicações web, estudos práticos e experimentos voltados para desenvolvimento fullstack, banco de dados e automação.</p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">GitHub</span>
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Fullstack</span>
-            <span class="rounded-full border border-blue-800/70 px-3 py-1 text-sm text-blue-300">Estudos</span>
-          </div>
-          <a href="https://github.com/marcelinho1212/" target="_blank" rel="noreferrer" class="mt-6 inline-flex rounded-xl border border-blue-500 px-4 py-2 text-sm font-semibold text-blue-300 transition hover:bg-blue-500/10">Ver projeto</a>
-        </article>
+          <article class="project-card">
+            <div class="project-banner"></div>
+            <h3>Projetos e estudos no GitHub</h3>
+            <p>
+              Repositórios com aplicações web, estudos práticos e experimentos voltados para desenvolvimento
+              fullstack, banco de dados e automação.
+            </p>
+            <div class="tags">
+              <span class="tag">GitHub</span>
+              <span class="tag">Fullstack</span>
+              <span class="tag">Estudos</span>
+            </div>
+            <a class="project-link" href="https://github.com/marcelinho1212/" target="_blank">Ver projeto</a>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="certificados" class="border-y border-blue-950/50 bg-slate-950/40 px-6 py-20">
-      <div class="mx-auto max-w-6xl">
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">Certificados</p>
-        <h2 class="text-3xl font-bold md:text-5xl">Formações e cursos</h2>
+    <section id="certificados" class="section certs-section">
+      <div class="container">
+        <p class="section-title-small">Certificados</p>
+        <h2 class="section-title">Formações e cursos</h2>
 
-        <div class="mt-10 grid gap-4 md:grid-cols-2">
-          <a href="certificados/dominandopackages.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+        <div class="cert-grid">
+          <a class="cert-link" href="certificados/dominandopackages.pdf" target="_blank">
             Oracle PL/SQL: Dominando Packages
           </a>
 
-          <a href="certificados/cursorexcecoes.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/cursorexcecoes.pdf" target="_blank">
             Oracle PL/SQL: Cursor e Exceções
           </a>
 
-          <a href="certificados/proceduresfuncoesexcecoes.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/proceduresfuncoesexcecoes.pdf" target="_blank">
             Oracle PL/SQL: Procedures, Funções e Exceções
           </a>
 
-          <a href="certificados/manipulacaodados.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/manipulacaodados.pdf" target="_blank">
             SQL com Oracle Database: Manipule e Consulte Dados
           </a>
 
-          <a href="certificados/manipulando dados com comandos DML.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/manipulando dados com comandos DML.pdf" target="_blank">
             Oracle Database: Manipulando Dados com Comandos DML
           </a>
 
-          <a href="certificados/joinsviews.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/joinsviews.pdf" target="_blank">
             Oracle Database: Projeções, Seleções, Joins e Views
           </a>
 
-          <a href="certificados/Curso Seg.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/Curso Seg.pdf" target="_blank">
             Segurança da Informação para Todos
           </a>
 
-          <a href="certificados/habilidades com IA.pdf" target="_blank" class="rounded-3xl border border-slate-800 bg-black/60 p-6 text-lg text-slate-200 transition hover:border-blue-500 hover:text-blue-300">
+          <a class="cert-link" href="certificados/habilidades com IA.pdf" target="_blank">
             Negociação: Treinando Habilidades com IA
           </a>
         </div>
       </div>
     </section>
 
-    <section id="contato" class="mx-auto max-w-6xl px-6 py-20">
-      <div class="grid gap-10 md:grid-cols-[1fr_0.95fr]">
-        <div>
-          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">Contato</p>
-          <h2 class="text-3xl font-bold md:text-5xl">Vamos conversar</h2>
-          <p class="mt-6 text-lg leading-8 text-slate-300">
-            Estou disponível para oportunidades, colaborações e projetos que envolvam
-            desenvolvimento fullstack, sistemas web, automação e banco de dados.
+    <section id="contato" class="section">
+      <div class="container contact-grid">
+        <div class="contact-text">
+          <p class="section-title-small">Contato</p>
+          <h2 class="section-title">Vamos conversar</h2>
+          <p>
+            Estou disponível para oportunidades, colaborações e projetos que envolvam desenvolvimento
+            fullstack, sistemas web, automação e banco de dados.
           </p>
-          <div class="mt-8 space-y-4 text-slate-300">
-            <p><span class="font-semibold text-white">WhatsApp:</span> <a class="text-blue-300 hover:text-blue-400" target="_blank" href="https://wa.me/5531981094264">+55 31 98109-4264</a></p>
-            <p><span class="font-semibold text-white">Instagram:</span> <a class="text-blue-300 hover:text-blue-400" target="_blank" href="https://instagram.com/marcelo_rr_eduardo">@marcelo_rr_eduardo</a></p>
-            <p><span class="font-semibold text-white">GitHub:</span> github.com/marcelinho1212</p>
-            <p><span class="font-semibold text-white">LinkedIn:</span> /in/marcelo-romano-627901259</p>
+
+          <div class="contact-list">
+            <div><span>WhatsApp:</span> <a href="https://wa.me/5531981094264" target="_blank">+55 31 98109-4264</a></div>
+            <div><span>Instagram:</span> <a href="https://instagram.com/marcelo_rr_eduardo" target="_blank">@marcelo_rr_eduardo</a></div>
+            <div><span>GitHub:</span> github.com/marcelinho1212</div>
+            <div><span>LinkedIn:</span> /in/marcelo-romano-627901259</div>
           </div>
         </div>
 
-        <div class="rounded-3xl border border-blue-900/50 bg-slate-950/80 p-8 shadow-2xl shadow-blue-950/20">
-          <h3 class="text-2xl font-semibold text-white">Links principais</h3>
-          <div class="mt-6 grid gap-4">
-            <a href="https://github.com/marcelinho1212/" target="_blank" rel="noreferrer" class="rounded-2xl border border-slate-800 bg-black/60 px-4 py-4 text-slate-200 transition hover:border-blue-500 hover:text-blue-300">GitHub</a>
-            <a href="https://www.linkedin.com/in/marcelo-romano-627901259/" target="_blank" rel="noreferrer" class="rounded-2xl border border-slate-800 bg-black/60 px-4 py-4 text-slate-200 transition hover:border-blue-500 hover:text-blue-300">LinkedIn</a>
-            <a href="https://wa.me/5531981094264" target="_blank" rel="noreferrer" class="rounded-2xl border border-slate-800 bg-black/60 px-4 py-4 text-slate-200 transition hover:border-blue-500 hover:text-blue-300">WhatsApp</a>
-            <a href="https://instagram.com/marcelo_rr_eduardo" target="_blank" rel="noreferrer" class="rounded-2xl border border-slate-800 bg-black/60 px-4 py-4 text-slate-200 transition hover:border-blue-500 hover:text-blue-300">Instagram</a>
+        <div class="card link-box">
+          <h3>Links principais</h3>
+          <div class="link-grid">
+            <a class="big-link" href="https://github.com/marcelinho1212/" target="_blank">GitHub</a>
+            <a class="big-link" href="https://www.linkedin.com/in/marcelo-romano-627901259/" target="_blank">LinkedIn</a>
+            <a class="big-link" href="https://wa.me/5531981094264" target="_blank">WhatsApp</a>
+            <a class="big-link" href="https://instagram.com/marcelo_rr_eduardo" target="_blank">Instagram</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-blue-950/50 px-6 py-8 text-center text-sm text-slate-500">
+  <footer>
     © 2025 Marcelo Eduardo Ribeiro Romano. Todos os direitos reservados.
   </footer>
 
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>
