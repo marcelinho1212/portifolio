@@ -921,6 +921,122 @@
         padding:44px 0;
       }
     }
+
+    /* ── Hamburguer ── */
+    .hamburger{
+      display:none;
+      flex-direction:column;
+      justify-content:center;
+      gap:5px;
+      width:44px;height:44px;
+      border:1px solid rgba(96,165,250,.3);
+      border-radius:12px;
+      background:rgba(9,20,38,.65);
+      cursor:pointer;
+      padding:10px;
+      flex-shrink:0;
+      transition:.2s ease;
+    }
+
+    .hamburger:hover{
+      border-color:rgba(147,197,253,.6);
+      background:rgba(15,28,49,.9);
+    }
+
+    .hamburger span{
+      display:block;
+      height:2px;
+      border-radius:2px;
+      background:#f8fafc;
+      transition:.3s ease;
+      transform-origin:center;
+    }
+
+    .hamburger.open span:nth-child(1){
+      transform:translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2){
+      opacity:0;
+      transform:scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3){
+      transform:translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:49;
+      background:rgba(7,17,31,.97);
+      backdrop-filter:blur(16px);
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:24px;
+    }
+
+    .mobile-menu.open{
+      display:flex;
+    }
+
+    .mobile-menu a{
+      width:100%;
+      max-width:320px;
+      text-align:center;
+      padding:18px 24px;
+      border-radius:18px;
+      color:#dbe7f5;
+      font-family:'Syne',sans-serif;
+      font-size:22px;
+      font-weight:800;
+      border:1px solid rgba(96,165,250,.12);
+      background:rgba(14,28,49,.6);
+      transition:.2s ease;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.active{
+      background:rgba(59,130,246,.12);
+      border-color:rgba(96,165,250,.35);
+      color:var(--blue-3);
+    }
+
+    .mobile-menu-close{
+      position:absolute;
+      top:20px;
+      right:20px;
+      width:44px;height:44px;
+      border-radius:12px;
+      border:1px solid rgba(96,165,250,.25);
+      background:rgba(9,20,38,.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      color:#f8fafc;
+      font-size:22px;
+      transition:.2s ease;
+    }
+
+    .mobile-menu-close:hover{
+      border-color:rgba(147,197,253,.6);
+      background:rgba(15,28,49,.9);
+    }
+
+    @media (max-width:1080px){
+      .hamburger{ display:flex }
+      .nav{ display:none }
+      .header-inner{
+        flex-direction:row !important;
+        align-items:center !important;
+        min-height:72px;
+        padding:0 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -937,8 +1053,25 @@
         <a href="#certificados">Certificados</a>
         <a href="#contato">Contato</a>
       </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Fechar menu">✕</button>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#certificados">Certificados</a>
+    <a href="#contato">Contato</a>
+  </div>
 
   <main>
     <section id="inicio" class="hero">
@@ -1368,5 +1501,34 @@
     © 2025 Marcelo Romano. Todos os direitos reservados.
   </footer>
 
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    function openMenu(){
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu(){
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape') closeMenu();
+    });
+  </script>
 </body>
 </html>
