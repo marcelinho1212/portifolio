@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marcelo Romano | Portfólio</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -965,36 +966,51 @@
       transform:translateY(-7px) rotate(-45deg);
     }
 
-    .mobile-menu{
+    /* overlay escuro atrás do drawer */
+    .menu-overlay{
       display:none;
       position:fixed;
       inset:0;
+      z-index:48;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(2px);
+    }
+
+    .menu-overlay.open{ display:block; }
+
+    /* drawer lateral */
+    .mobile-menu{
+      position:fixed;
+      top:0;right:0;
       z-index:49;
-      background:rgba(7,17,31,.97);
-      backdrop-filter:blur(16px);
+      width:70%;
+      max-width:320px;
+      height:100%;
+      background:rgba(10,20,38,.98);
+      border-left:1px solid rgba(96,165,250,.18);
+      backdrop-filter:blur(20px);
+      display:flex;
       flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:24px;
+      padding:80px 24px 40px;
+      gap:10px;
+      transform:translateX(100%);
+      transition:transform .3s cubic-bezier(.4,0,.2,1);
     }
 
     .mobile-menu.open{
-      display:flex;
+      transform:translateX(0);
     }
 
     .mobile-menu a{
       width:100%;
-      max-width:320px;
-      text-align:center;
-      padding:18px 24px;
-      border-radius:18px;
+      padding:16px 20px;
+      border-radius:14px;
       color:#dbe7f5;
       font-family:'Syne',sans-serif;
-      font-size:22px;
+      font-size:18px;
       font-weight:800;
-      border:1px solid rgba(96,165,250,.12);
-      background:rgba(14,28,49,.6);
+      border:1px solid rgba(96,165,250,.10);
+      background:rgba(14,28,49,.5);
       transition:.2s ease;
     }
 
@@ -1007,10 +1023,10 @@
 
     .mobile-menu-close{
       position:absolute;
-      top:20px;
-      right:20px;
-      width:44px;height:44px;
-      border-radius:12px;
+      top:16px;
+      right:16px;
+      width:40px;height:40px;
+      border-radius:10px;
       border:1px solid rgba(96,165,250,.25);
       background:rgba(9,20,38,.65);
       display:flex;
@@ -1018,7 +1034,7 @@
       justify-content:center;
       cursor:pointer;
       color:#f8fafc;
-      font-size:22px;
+      font-size:20px;
       transition:.2s ease;
     }
 
@@ -1062,7 +1078,10 @@
     </div>
   </header>
 
-  <!-- Menu mobile -->
+  <!-- Overlay -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- Menu mobile (drawer lateral) -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="menuClose" aria-label="Fechar menu">✕</button>
     <a href="#inicio">Início</a>
@@ -1505,22 +1524,32 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
     const menuLinks = mobileMenu.querySelectorAll('a');
 
     function openMenu(){
       mobileMenu.classList.add('open');
+      menuOverlay.classList.add('open');
       hamburger.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
     function closeMenu(){
-      mobileMenu.classList.remove('close');
-      hamburger.classList.remove('close');
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      hamburger.classList.remove('open');
       document.body.style.overflow = '';
     }
 
-    hamburger.addEventListener('click', openMenu);
+    hamburger.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('open')) {
+    closeMenu();
+    } else {
+      openMenu();
+    }
+    });
     menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
 
     menuLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
