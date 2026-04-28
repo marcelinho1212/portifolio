@@ -403,6 +403,28 @@
       border-color:rgba(147,197,253,.35);
     }
 
+    .project-card.featured{
+      position:relative;
+      border-color:rgba(147,197,253,.32);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(59,130,246,.20), transparent 35%),
+        linear-gradient(180deg, rgba(16,32,58,.88), rgba(10,21,37,.94));
+    }
+
+    .project-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      z-index:2;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(59,130,246,.88);
+      color:#fff;
+      font-size:12px;
+      font-weight:800;
+      box-shadow:0 10px 25px rgba(59,130,246,.25);
+    }
+
     .project-banner{
       height:180px;
       border-radius:20px;
@@ -1118,7 +1140,7 @@
 
           <div class="socials">
             <!-- GitHub -->
-            <a class="social-btn" href="https://github.com/marcelinho1212/" target="_blank" aria-label="GitHub">
+            <a class="social-btn" href="https://github.com/marcelinho1212/" target="_blank" rel="noopener" aria-label="GitHub">
               <svg viewBox="0 0 24 24" fill="#f8fafc" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
               </svg>
@@ -1327,24 +1349,25 @@
               <span class="tag">Frontend</span>
               <span class="tag">Deploy</span>
             </div>
-            <a class="project-link" href="https://pedro-b-media.onrender.com/" target="_blank">Ver projeto</a>
+            <a class="project-link" href="https://pedro-b-media.onrender.com/" target="_blank" rel="noopener">Ver projeto</a>
           </article>
 
-          <article class="project-card">
+          <article class="project-card featured">
+            <span class="project-badge">Novo projeto</span>
             <div class="project-banner">
-              <img src="img/roni.png" alt="Rony Massoterapia">
+              <img src="img/bruna-cleaning.png" alt="Bruna Romano Cleaning Services">
             </div>
-            <h3>Rony Massoterapia</h3>
+            <h3>Bruna Romano Cleaning Services</h3>
             <p>
-              Sistema web com agendamento online e integração via WhatsApp, pensado para facilitar o
-              contato com clientes e otimizar o atendimento.
+              Site institucional desenvolvido para empresa de limpeza profissional no Algarve, Portugal,
+              com layout moderno, chamadas para orçamento via WhatsApp e apresentação clara dos serviços.
             </p>
             <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Django</span>
+              <span class="tag">Landing Page</span>
+              <span class="tag">HTML/CSS</span>
               <span class="tag">WhatsApp</span>
             </div>
-            <a class="project-link" href="https://rony-massoterapia.onrender.com/" target="_blank">Ver projeto</a>
+            <a class="project-link" href="https://bruna-cleaning-services.onrender.com/" target="_blank" rel="noopener">Ver projeto</a>
           </article>
 
           <article class="project-card">
@@ -1363,7 +1386,7 @@
               <span class="tag">Fullstack</span>
               <span class="tag">Estudos</span>
             </div>
-            <a class="project-link" href="https://github.com/marcelinho1212/" target="_blank">Ver projeto</a>
+            <a class="project-link" href="https://github.com/marcelinho1212/" target="_blank" rel="noopener">Ver projeto</a>
           </article>
         </div>
       </div>
@@ -1426,7 +1449,7 @@
 
           <div class="contact-list">
             <!-- GitHub -->
-            <a class="contact-chip" href="https://github.com/marcelinho1212/" target="_blank" aria-label="GitHub">
+            <a class="contact-chip" href="https://github.com/marcelinho1212/" target="_blank" rel="noopener" aria-label="GitHub">
               <svg viewBox="0 0 24 24" fill="#f8fafc" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
               </svg>
@@ -1477,7 +1500,7 @@
               </svg>
               Ver currículo
             </a>
-            <a class="big-link" href="https://github.com/marcelinho1212/" target="_blank">
+            <a class="big-link" href="https://github.com/marcelinho1212/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="#f8fafc" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
               </svg>
